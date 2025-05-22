@@ -40,6 +40,22 @@ export const books = [
     year: 1862,
     categories: ['Klasikler', 'Toplumsal', 'Dünya Edebiyatı'],
     status: 'okuma',
+    adaptations: {
+      movie: {
+        available: true,
+        platforms: [{ name: 'Netflix', url: 'https://www.netflix.com/' }],
+      },
+      series: {
+        available: false,
+      },
+      audiobook: {
+        available: true,
+        platforms: [
+          { name: 'Audible', url: 'https://www.audible.com/pd/Suc-ve-Ceza-Audiobook/123456' },
+          { name: 'Storytell', url: 'https://www.audible.com/pd/Suc-ve-Ceza-Audiobook/123456' },
+        ],
+      },
+    },
   },
   {
     id: 3,

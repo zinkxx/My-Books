@@ -525,4 +525,11 @@ h3.text-dark i {
   color: #555;
   font-size: 1rem;
 }
+
+.book-cover {
+  width: auto; /* Genişlik orantılı olarak ayarlanır */
+  height: 500px; /* Daha büyük bir yükseklik verelim */
+  max-width: 300px; /* Genişliği biraz daha artırarak daha uzun hale getirebiliriz */
+  object-fit: cover; /* Görselin kesilmeden düzgün şekilde alana sığmasını sağlar */
+}
 </style>
