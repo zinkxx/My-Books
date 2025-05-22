@@ -67,6 +67,26 @@ export const books = [
     year: 1877,
     categories: ['Klasikler', 'Romantik', 'Rus Edebiyatı'],
     status: 'okuma',
+    adaptations: {
+      movie: {
+        available: true,
+        platforms: [
+          { name: 'Netflix', url: 'https://www.netflix.com/' },
+          { name: 'Amazon Prime Video', url: 'https://www.amazon.com/Prime-Video' },
+        ],
+      },
+      series: {
+        available: true,
+        platforms: [{ name: 'HBO Max', url: 'https://www.hbomax.com/' }],
+      },
+      audiobook: {
+        available: true,
+        platforms: [
+          { name: 'Audible', url: 'https://www.audible.com/pd/Book-Title-Audiobook/123456' },
+          { name: 'Storytell', url: 'https://www.storytell.com/Book-Title-Audiobook/654321' },
+        ],
+      },
+    },
   },
   {
     id: 4,
@@ -78,6 +98,23 @@ export const books = [
     year: 1848,
     categories: ['Klasikler', 'Psikolojik', 'Rus Edebiyatı'],
     status: 'okuma',
+    adaptations: {
+      movie: {
+        available: true,
+        platforms: [{ name: 'Hulu', url: 'https://www.hulu.com/' }],
+      },
+      series: {
+        available: true,
+        platforms: [
+          { name: 'Apple TV+', url: 'https://www.apple.com/tv/' },
+          { name: 'BBC iPlayer', url: 'https://www.bbc.co.uk/iplayer' },
+        ],
+      },
+      audiobook: {
+        available: false,
+        platforms: [],
+      },
+    },
   },
   {
     id: 5,
@@ -89,6 +126,22 @@ export const books = [
     year: 1859,
     categories: ['Klasikler', 'Tarih', 'Romantik'],
     status: 'okuma',
+    adaptations: {
+      movie: {
+        available: true,
+        platforms: [{ name: 'Amazon Prime Video', url: 'https://www.amazon.com/Prime-Video' }],
+      },
+      series: {
+        available: false,
+        platforms: [],
+      },
+      audiobook: {
+        available: true,
+        platforms: [
+          { name: 'Audible', url: 'https://www.audible.com/pd/Book-Title-Audiobook/123456' },
+        ],
+      },
+    },
   },
   {
     id: 6,
@@ -100,6 +153,23 @@ export const books = [
     year: 1847,
     categories: ['Klasikler', 'Romantik', 'Feminizm'],
     status: 'okuma',
+    adaptations: {
+      movie: {
+        available: true,
+        platforms: [
+          { name: 'Netflix', url: 'https://www.netflix.com/' },
+          { name: 'YouTube Movies', url: 'https://www.youtube.com/movies' },
+        ],
+      },
+      series: {
+        available: false,
+        platforms: [],
+      },
+      audiobook: {
+        available: true,
+        platforms: [{ name: 'Google Play Books', url: 'https://play.google.com/store/books' }],
+      },
+    },
   },
   {
     id: 7,
