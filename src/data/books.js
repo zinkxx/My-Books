@@ -181,6 +181,21 @@ export const books = [
     year: 1897,
     categories: ['Klasikler', 'Gotik', 'Korku'],
     status: 'okuma',
+    adaptations: {
+      movie: {
+        available: true,
+        platforms: [{ name: 'Netflix', url: 'https://www.netflix.com/' }],
+      },
+      series: {
+        available: false,
+      },
+      audiobook: {
+        available: true,
+        platforms: [
+          { name: 'Audible', url: 'https://www.audible.com/pd/Book-Title-Audiobook/123456' },
+        ],
+      },
+    },
   },
   {
     id: 8,
@@ -192,6 +207,20 @@ export const books = [
     year: 1813,
     categories: ['Klasikler', 'Romantik', 'Toplumsal'],
     status: 'okuma',
+    adaptations: {
+      movie: {
+        available: false,
+        platforms: [],
+      },
+      series: {
+        available: true,
+        platforms: [{ name: 'HBO Max', url: 'https://www.hbomax.com/' }],
+      },
+      audiobook: {
+        available: false,
+        platforms: [],
+      },
+    },
   },
   {
     id: 9,
@@ -203,6 +232,20 @@ export const books = [
     year: 1861,
     categories: ['Klasikler', 'Dramatik', 'Toplumsal'],
     status: 'okuma',
+    adaptations: {
+      movie: {
+        available: true,
+        platforms: [{ name: 'Amazon Prime Video', url: 'https://www.amazon.com/Prime-Video' }],
+      },
+      series: {
+        available: true,
+        platforms: [{ name: 'Apple TV+', url: 'https://www.apple.com/tv/' }],
+      },
+      audiobook: {
+        available: false,
+        platforms: [],
+      },
+    },
   },
   {
     id: 10,
@@ -214,6 +257,22 @@ export const books = [
     year: 1942,
     categories: ['Klasikler', 'Felsefi', 'Varoluşçu'],
     status: 'okuma',
+    adaptations: {
+      movie: {
+        available: false,
+        platforms: [],
+      },
+      series: {
+        available: false,
+        platforms: [],
+      },
+      audiobook: {
+        available: true,
+        platforms: [
+          { name: 'Storytell', url: 'https://www.storytell.com/Book-Title-Audiobook/654321' },
+        ],
+      },
+    },
   },
   {
     id: 11,
@@ -225,6 +284,20 @@ export const books = [
     year: 1856,
     categories: ['Klasikler', 'Dramatik', 'Toplumsal'],
     status: 'okuma',
+    adaptations: {
+      movie: {
+        available: true,
+        platforms: [{ name: 'YouTube Movies', url: 'https://www.youtube.com/movies' }],
+      },
+      series: {
+        available: false,
+        platforms: [],
+      },
+      audiobook: {
+        available: true,
+        platforms: [{ name: 'Google Play Books', url: 'https://play.google.com/store/books' }],
+      },
+    },
   },
   {
     id: 12,
