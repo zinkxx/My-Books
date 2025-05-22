@@ -4,7 +4,7 @@ import BookLogin from '@/views/BookLogin.vue'
 import MyLibrary from '@/views/MyLibrary.vue'
 import BookLibrary from '@/views/BookLibrary.vue'
 import UserProfile from '@/views/UserProfile.vue'
-import BookDetails from '@/views/BookDetails.vue'  // Kitap Detay Sayfası Eklendi
+import BookDetails from '@/views/BookDetails.vue' // Kitap Detay Sayfası Eklendi
 
 const routes = [
   { path: '/', name: 'home', component: HomePage },
@@ -32,8 +32,8 @@ const routes = [
     path: '/book-details/:title',
     name: 'book-details',
     component: BookDetails,
-    props: true  // URL parametrelerini props olarak geç
-  }
+    props: true, // URL parametrelerini props olarak geç
+  },
 ]
 
 const router = createRouter({

@@ -3,14 +3,26 @@
     <h2>Giriş Yap</h2>
     <form @submit.prevent="loginUser">
       <div class="form-group">
-        <input type="text" v-model="username" placeholder="Kullanıcı adı" required />
+        <input
+          type="text"
+          v-model="username"
+          class="form-control"
+          placeholder="Kullanıcı adı"
+          required
+        />
       </div>
 
       <div class="form-group">
-        <input type="password" v-model="password" placeholder="Şifre" required />
+        <input
+          type="password"
+          v-model="password"
+          class="form-control"
+          placeholder="Şifre"
+          required
+        />
       </div>
 
-      <button type="submit" class="submit-btn">Giriş Yap</button>
+      <button type="submit" class="btn btn-primary submit-btn">Giriş Yap</button>
     </form>
     <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
   </div>
@@ -52,7 +64,7 @@ const loginUser = () => {
 
 h2 {
   font-size: 1.8rem;
-  color: #42b883;
+  color: #42b883; /* Temanın ana rengini kullandık */
   margin-bottom: 15px;
 }
 
@@ -61,7 +73,7 @@ h2 {
   margin-bottom: 15px;
 }
 
-input {
+input.form-control {
   width: 100%;
   padding: 10px;
   font-size: 1rem;
@@ -73,7 +85,7 @@ input {
 button.submit-btn {
   width: 100%;
   padding: 12px;
-  background-color: #42b883;
+  background-color: #42b883; /* Temanın ana rengini kullandık */
   color: white;
   font-size: 1rem;
   border: none;

@@ -1,140 +1,151 @@
 <template>
-  <div class="recommended-books">
-    <h3>Önerilen Kitaplar</h3>
-    <div class="swiper-container-wrapper">
-      <button class="scroll-button left" @click="scrollLeft">&#10094;</button>
-      <div class="swiper-container" ref="swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide" v-for="(book, index) in books" :key="index">
-            <a :href="'/book-details/' + book.title" class="book-link">
-              <img :src="getImage(book.cover)" :alt="book.title" class="book-cover" />
-              <p class="book-title">{{ book.title }}</p>
-              <p class="book-author">{{ book.author }}</p>
+  <section class="recommended-books container-fluid my-5">
+    <h2 class="text-white mb-4 fw-bold">📚 Önerilen Kitaplar</h2>
+
+    <div class="position-relative">
+      <!-- Sol kaydırma butonu -->
+      <button
+        class="btn btn-dark position-absolute top-50 start-0 translate-middle-y z-3 rounded-circle p-2"
+        @click="scrollLeft"
+        style="opacity: 0.85"
+      >
+        <i class="fas fa-chevron-left"></i>
+      </button>
+
+      <!-- Scroll edilebilir kart alanı -->
+      <div class="scroll-container overflow-auto px-2" ref="swiper">
+        <div class="d-flex flex-nowrap gap-4 pb-3">
+          <div
+            v-for="(book, index) in books"
+            :key="index"
+            class="card bg-dark text-white border-0 shadow-lg flex-shrink-0 book-card rounded-3"
+          >
+            <a :href="'/book-details/' + book.title" class="text-decoration-none text-white">
+              <img
+                :src="getImage(book.cover)"
+                :alt="book.title"
+                class="card-img-top rounded-3"
+                style="height: 280px; object-fit: cover"
+              />
+              <div class="card-body px-3 pb-3 d-flex flex-column justify-content-between">
+                <h5 class="card-title fs-6 mb-1 text-white">{{ book.title }}</h5>
+                <p class="card-text author-name text-white small">{{ book.author }}</p>
+              </div>
             </a>
           </div>
         </div>
       </div>
-      <button class="scroll-button right" @click="scrollRight">&#10095;</button>
+
+      <!-- Sağ kaydırma butonu -->
+      <button
+        class="btn btn-dark position-absolute top-50 end-0 translate-middle-y z-3 rounded-circle p-2"
+        @click="scrollRight"
+        style="opacity: 0.85"
+      >
+        <i class="fas fa-chevron-right"></i>
+      </button>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
-import { books } from '../data/books.js' // books.js dosyasından veri import ediyoruz
+import { books } from '../data/books.js'
 
 export default {
   name: 'RecommendedBooks',
   data() {
     return {
-      books, // books verisini data içinde kullanıyoruz
+      books,
     }
   },
   methods: {
     getImage(filename) {
-      return new URL(`../assets/bookimg/${filename}`, import.meta.url).href // kitap kapağına doğru yolu sağlıyoruz
+      return new URL(`../assets/bookimg/${filename}`, import.meta.url).href
     },
     scrollLeft() {
-      this.$refs.swiper.scrollBy({ left: -300, behavior: 'smooth' }) // sola kaydırma işlevi
+      this.$refs.swiper.scrollBy({ left: -400, behavior: 'smooth' })
     },
     scrollRight() {
-      this.$refs.swiper.scrollBy({ left: 300, behavior: 'smooth' }) // sağa kaydırma işlevi
+      this.$refs.swiper.scrollBy({ left: 400, behavior: 'smooth' })
     },
   },
 }
 </script>
 
 <style scoped>
+/* Ana container rengini uygulama */
 .recommended-books {
-  margin: 30px 0;
-}
-
-.recommended-books h3 {
-  font-size: 1.8rem;
-  text-align: center;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-.swiper-container-wrapper {
+  background-color: #2a7453; /* Ana renk olarak yeşil */
+  border-radius: 16px;
+  padding: 32px 24px;
   position: relative;
-  display: flex;
-  align-items: center;
 }
 
-.swiper-container {
-  overflow: hidden;
-  padding: 10px 0;
-  flex: 1;
+/* Kaydırma alanını gizlemek için stil */
+.scroll-container {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
 }
-
-.swiper-wrapper {
-  display: flex;
-  gap: 24px;
-}
-
-.swiper-slide {
-  min-width: 160px;
-  flex-shrink: 0;
-  transition: transform 0.3s ease;
-}
-
-.book-cover {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  object-fit: cover;
-  -webkit-user-drag: none;
-  user-drag: none;
-  pointer-events: none;
-}
-
-.book-title {
-  text-align: center;
-  font-weight: 600;
-  margin-top: 10px;
-  font-size: 1rem;
-  color: #555;
-}
-
-.book-author {
-  text-align: center;
-  font-size: 0.9rem;
-  color: #777;
-  margin-top: 5px;
-}
-
-.scroll-button {
-  background-color: #42b883;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-  padding: 6px 10px;
-  border-radius: 50%;
-  margin: 0 8px;
-  transition: background 0.2s;
-  z-index: 2;
-}
-
-.scroll-button:hover {
-  background-color: #36a76d;
-}
-
-.left {
-  margin-right: -10px;
-}
-
-.right {
-  margin-left: -10px;
-}
-
-.swiper-container::-webkit-scrollbar {
+.scroll-container::-webkit-scrollbar {
   display: none;
 }
 
-.book-link {
-  text-decoration: none;
-  display: block;
-  color: inherit;
+/* Kitap kartlarının şıklığını arttırma */
+.book-card {
+  min-width: 180px;
+  max-width: 180px;
+  transition:
+    transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.1); /* Şeffaf arka plan */
+}
+.book-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 10px rgba(0, 128, 128, 0.5);
+}
+
+/* Kitap görselinin kenarlarını yuvarlama */
+.card-img-top {
+  border-radius: 12px;
+}
+
+/* Card body'ye şeffaf bir arka plan verme */
+.card-body {
+  padding: 16px 12px;
+  background-color: rgba(0, 0, 0, 0.6); /* Saydam arka plan */
+}
+
+/* Kitap başlığını stilize etme */
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Yazar adı beyaz renk yapılacak */
+.author-name {
+  font-size: 0.9rem;
+  color: #ffffff; /* Beyaz renk */
+}
+
+/* Buton stilini ayarlama */
+.btn {
+  background-color: #2a7453; /* Yeşil buton rengi */
+  border: none;
+  font-size: 1.2rem;
+}
+
+.btn:hover {
+  background-color: #1e5a3f; /* Buton hover rengi */
+}
+
+/* Sol ve sağ kaydırma butonları */
+.fas {
+  color: #ffffff;
+}
+
+.fas:hover {
+  color: #2a7453; /* Buton ikonu hover rengi */
 }
 </style>

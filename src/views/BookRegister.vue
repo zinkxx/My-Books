@@ -1,24 +1,50 @@
 <template>
   <div class="book-register-container">
-    <h2>Kayıt Ol</h2>
+    <h2 class="text-theme mb-4">{{ selectedLanguage === 'tr' ? 'Kayıt Ol' : 'Register' }}</h2>
     <form @submit.prevent="registerUser">
-      <div class="form-group">
-        <input type="text" v-model="username" placeholder="Kullanıcı adı" required />
+      <div class="form-group mb-3">
+        <input
+          type="text"
+          v-model="username"
+          class="form-control"
+          :placeholder="selectedLanguage === 'tr' ? 'Kullanıcı adı' : 'Username'"
+          required
+        />
       </div>
 
-      <div class="form-group">
-        <input type="email" v-model="email" placeholder="E-posta adresi" required />
+      <div class="form-group mb-3">
+        <input
+          type="email"
+          v-model="email"
+          class="form-control"
+          :placeholder="selectedLanguage === 'tr' ? 'E-posta adresi' : 'Email address'"
+          required
+        />
       </div>
 
-      <div class="form-group">
-        <input type="password" v-model="password" placeholder="Şifre" required />
+      <div class="form-group mb-3">
+        <input
+          type="password"
+          v-model="password"
+          class="form-control"
+          :placeholder="selectedLanguage === 'tr' ? 'Şifre' : 'Password'"
+          required
+        />
       </div>
 
-      <div class="form-group">
-        <input type="password" v-model="confirmPassword" placeholder="Şifreyi onayla" required />
+      <div class="form-group mb-4">
+        <input
+          type="password"
+          v-model="confirmPassword"
+          class="form-control"
+          :placeholder="selectedLanguage === 'tr' ? 'Şifreyi onayla' : 'Confirm password'"
+          required
+        />
       </div>
 
-      <button type="submit" class="submit-btn">Kayıt Ol</button>
+      <button type="submit" class="btn btn-lg custom-btn w-100">
+        {{ selectedLanguage === 'tr' ? 'Kayıt Ol' : 'Register' }}
+      </button>
     </form>
   </div>
 </template>
@@ -26,13 +52,12 @@
 <script setup>
 import { ref } from 'vue'
 
-// Form verileri
+const selectedLanguage = ref('tr') // Başlangıç dili Türkçe olarak ayarlandı
 const username = ref('')
 const email = ref('')
 const password = ref('')
 const confirmPassword = ref('')
 
-// Kayıt işlemi
 const registerUser = () => {
   // Kayıt işlemi yapılacak
   console.log('Kayıt işlemi yapıldı:', username.value, email.value, password.value)
@@ -42,39 +67,29 @@ const registerUser = () => {
 <style scoped>
 .book-register-container {
   width: 100%;
-  max-width: 400px;
-  padding: 20px;
+  max-width: 500px;
+  padding: 30px;
   background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 h2 {
   font-size: 1.8rem;
   color: #42b883;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
-.form-group {
-  width: 100%;
-  margin-bottom: 15px;
-}
-
-input {
-  width: 100%;
+.form-group input {
   padding: 10px;
   font-size: 1rem;
   border-radius: 6px;
   border: 1px solid #ddd;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 button.submit-btn {
-  width: 100%;
   padding: 12px;
   background-color: #42b883;
   color: white;
@@ -87,5 +102,22 @@ button.submit-btn {
 
 button.submit-btn:hover {
   background-color: #367f60;
+}
+
+/* Custom Button for theming */
+.custom-btn {
+  background-color: #42b883;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  padding: 15px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.custom-btn:hover {
+  background-color: #367f60;
+  transform: scale(1.05);
 }
 </style>
